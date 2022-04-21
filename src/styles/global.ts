@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
         --background: rgba(243, 245, 247, 1);
         --box: rgba(255, 255, 255, 1);
         --background-color: #0093E9;
+        --background-color2: #00a1ff;
         --background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
         
     }
