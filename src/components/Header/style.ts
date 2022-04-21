@@ -1,0 +1,19 @@
+import styled from "styled-components";
+
+export const Container = styled.header`
+    background: var(--background-color);
+`
+
+export const Content = styled.div`
+    max-width: 1120px;
+    margin: 0 auto;
+
+    padding: 2rem 1rem 8rem;
+    display: flex;
+    justify-content: center;
+
+    h1 {
+        font-size: 3rem;
+        font-weight: 500;
+    }
+`;
