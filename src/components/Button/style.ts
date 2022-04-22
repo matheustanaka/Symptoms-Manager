@@ -4,7 +4,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: -3rem;
+    margin-top: -5rem;
 `;
 
 export const Button = styled.button`
