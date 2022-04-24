@@ -4,7 +4,6 @@ export const Container = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 3rem;
     
-    margin-top: 2rem;
 
 
     .box-card {
@@ -15,6 +14,7 @@ export const Container = styled.div`
         background: var(--box);
         border-radius: 1rem;
 
+        margin-top: 1.5rem;
     }
 
 `;
