@@ -1,3 +1,5 @@
+import { FormEvent, useState } from "react";
+import { UserApi } from "../../services/UserApi";
 import Modal from "react-modal";
 import { Container } from "./style";
 
@@ -6,7 +8,25 @@ interface NewUserModalProps {
     isOpen: boolean;
     onRequestClose: () => void;
 }
+
 export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    function handleCreateNewUser(event: FormEvent) {
+        
+        event.preventDefault();
+    
+        const newUser = ({
+            name,
+            email,
+            password,
+        });
+
+        UserApi.post("/users", newUser);
+    }
+    
     return(
         <Modal
         isOpen={isOpen}
@@ -18,11 +38,29 @@ export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
                Fechar
            </button>
 
-           <Container>
+           <Container onSubmit={handleCreateNewUser}>
                 <h2>Cadastrar Usuário</h2>
-                <input placeholder="Nome" />
-                <input placeholder="Email" />
-                <input placeholder="Senha" />
+                <input
+                type="text"
+                name="nome" 
+                placeholder="Nome" 
+                value={name} 
+                onChange={event => setName(event.target.value)}
+                />
+                <input
+                type="text"
+                name="email"  
+                placeholder="Email" 
+                value={email} 
+                onChange={event => setEmail(event.target.value)}
+                />
+                <input
+                type="text"
+                name="senha" 
+                placeholder="Senha" 
+                value={password} 
+                onChange={event => setPassword(event.target.value)}
+                />
                 <button type="submit">
                     Cadastrar
                 </button>

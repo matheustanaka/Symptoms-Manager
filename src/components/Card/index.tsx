@@ -19,7 +19,7 @@ export function Card() {
         <Container>
             {users.map((user) => {
                 return (
-                    <div className="box-card">
+                    <div className="box-card" key={user.id}>
                     <h2>{user.name}</h2>
                     <h3>{user.email}</h3>
                     <p>{user.password}</p>
