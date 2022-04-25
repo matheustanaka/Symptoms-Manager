@@ -61,7 +61,7 @@ export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
                 value={password} 
                 onChange={event => setPassword(event.target.value)}
                 />
-                <button type="submit">
+                <button type="submit" onClick={handleCreateNewUser}>
                     Cadastrar
                 </button>
            </Container>
