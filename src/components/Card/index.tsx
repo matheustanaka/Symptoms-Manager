@@ -1,17 +1,25 @@
 import { useEffect, useState } from "react";
 import { UserApi } from "../../services/UserApi";
-import { IUser } from "../../types/UserType";
+import { UserType } from "../../types/UserType";
 import { Container } from "./style";
 
 export function Card() {
-    const [users, setUser] = useState<IUser[]>([]);
+    const [users, setUsers] = useState<UserType[]>([]);
 
+    console.log({ users });
+
+    const fetchUsers = async () => {
+        try {
+            const { data } = await UserApi.get("/users");
+
+            setUsers(data);
+        }
+        catch (err) {
+            console.log({ err });
+        }
+    }
     useEffect(() => {
-        UserApi.get("/users")
-        .then((response) => setUser(response.data))
-        .catch((err) => {
-            console.log("Evita dog " + err)
-        })
+        fetchUsers();
     }, []);
 
 
