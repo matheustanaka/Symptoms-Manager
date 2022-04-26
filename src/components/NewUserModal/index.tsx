@@ -12,7 +12,7 @@ interface NewUserModalProps {
 export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [sympotms, setSympotms] = useState('');
 
     function handleCreateNewUser(event: FormEvent) {
         
@@ -21,7 +21,7 @@ export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
         const newUser = ({
             name,
             email,
-            password,
+            sympotms,
         });
 
         UserApi.post("/users", newUser);
@@ -56,10 +56,10 @@ export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
                 />
                 <input
                 type="text"
-                name="senha" 
-                placeholder="Senha" 
-                value={password} 
-                onChange={event => setPassword(event.target.value)}
+                name="sintomas" 
+                placeholder="Sintomas" 
+                value={sympotms} 
+                onChange={event => setSympotms(event.target.value)}
                 />
                 <button type="submit" onClick={handleCreateNewUser}>
                     Cadastrar
