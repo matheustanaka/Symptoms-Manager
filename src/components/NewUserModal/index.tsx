@@ -38,7 +38,7 @@ export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
                Fechar
            </button>
 
-           <Container onSubmit={handleCreateNewUser}>
+           <Container>
                 <h2>Cadastrar Usuário</h2>
                 <input
                 type="text"
