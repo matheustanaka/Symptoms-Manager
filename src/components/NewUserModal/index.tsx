@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react";
-import { UserApi } from "../../services/UserApi";
 import Modal from "react-modal";
 import { Container } from "./style";
+import { useUsers } from "../../hooks/useUsers";
 
 
 interface NewUserModalProps {
@@ -14,17 +14,18 @@ export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
     const [email, setEmail] = useState('');
     const [symptoms, setSymptoms] = useState('');
 
+    const { createUser } = useUsers();
+
     async function handleCreateNewUser(event: FormEvent) {
         
         event.preventDefault();
     
-        const newUser = ({
+        await createUser ({
             name,
             email,
             symptoms,
         });
 
-        await UserApi.post("/users", newUser);
         onRequestClose();
     }
     

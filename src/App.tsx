@@ -6,7 +6,7 @@ import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header";
 import { NewUserModal } from "./components/NewUserModal";
 import { GlobalStyle } from "./styles/global";
-
+import { UsersProvider } from "./hooks/useUsers"
 Modal.setAppElement('#root');
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
     setIsNewUserModalOpen(false)
   }
   return (
-    <>
+    <UsersProvider>
     <Header />
     <ButtonCreate onOpenNewUserModal={handleOpenNewUserModal}/> 
     <Dashboard />
@@ -29,7 +29,7 @@ function App() {
     onRequestClose={handleCloseNewUserModal}
     />
     <GlobalStyle />
-    </>
+    </UsersProvider>
   );
 }
 
