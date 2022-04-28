@@ -28,7 +28,7 @@ export function Card() {
                     <div className="box-card" key={user.id}>
                     <h2>{user.name}</h2>
                     <h3>{user.email}</h3>
-                    <p>{user.sympotms}</p>
+                    <p>{user.symptoms}</p>
                     <p>medicines</p>
                     </div>
                 );

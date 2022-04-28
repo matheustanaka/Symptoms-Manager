@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { UserApi } from "../../services/UserApi";
 import Modal from "react-modal";
 import { Container } from "./style";
@@ -12,7 +12,7 @@ interface NewUserModalProps {
 export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [sympotms, setSympotms] = useState('');
+    const [symptoms, setSympotms] = useState('');
 
     async function handleCreateNewUser(event: FormEvent) {
         
@@ -21,7 +21,7 @@ export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
         const newUser = ({
             name,
             email,
-            sympotms,
+            symptoms,
         });
 
         await UserApi.post("/users", newUser);
@@ -36,15 +36,15 @@ export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
         className="react-modal-content"
         >
            <button type="button" onClick={onRequestClose} className="react-modal-close">
-               Fechar
+               Close
            </button>
 
            <Container>
-                <h2>Cadastrar Usuário</h2>
+                <h2>Register Symptoms</h2>
                 <input
                 type="text"
-                name="nome" 
-                placeholder="Nome" 
+                name="name" 
+                placeholder="Name" 
                 value={name} 
                 onChange={event => setName(event.target.value)}
                 />
@@ -57,13 +57,13 @@ export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
                 />
                 <input
                 type="text"
-                name="sintomas" 
-                placeholder="Sintomas" 
-                value={sympotms} 
+                name="symptoms" 
+                placeholder="Symptoms" 
+                value={symptoms} 
                 onChange={event => setSympotms(event.target.value)}
                 />
                 <button type="submit" onClick={handleCreateNewUser}>
-                    Cadastrar
+                    Register
                 </button>
            </Container>
         </Modal>
