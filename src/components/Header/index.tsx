@@ -4,7 +4,7 @@ export function Header() {
     return(
         <Container>
             <Content>
-                <h1>CRUD dos crias 👋</h1>
+                <h1>Symptoms Manager 💉 </h1>
             </Content>
         </Container>
     );

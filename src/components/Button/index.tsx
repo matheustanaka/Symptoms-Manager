@@ -9,7 +9,7 @@ export function ButtonCreate({ onOpenNewUserModal }: ButtonProps) {
     return (
         <Container>
             <Button onClick={onOpenNewUserModal}>
-                Cria algo ae pae 😎
+                Create Medical Records
             </Button>
         </Container>
 
