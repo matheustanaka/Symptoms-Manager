@@ -6,8 +6,6 @@ import { Container } from "./style";
 export function Card() {
     const [users, setUsers] = useState<UserType[]>([]);
 
-    console.log({ users });
-
     const fetchUsers = async () => {
         try {
             const { data } = await UserApi.get("/users");

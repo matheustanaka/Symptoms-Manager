@@ -14,7 +14,7 @@ export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
     const [email, setEmail] = useState('');
     const [sympotms, setSympotms] = useState('');
 
-    function handleCreateNewUser(event: FormEvent) {
+    async function handleCreateNewUser(event: FormEvent) {
         
         event.preventDefault();
     
@@ -24,7 +24,8 @@ export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
             sympotms,
         });
 
-        UserApi.post("/users", newUser);
+        await UserApi.post("/users", newUser);
+        onRequestClose();
     }
     
     return(
