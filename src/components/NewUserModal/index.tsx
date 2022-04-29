@@ -26,6 +26,10 @@ export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
             symptoms
         });
 
+        setName('');
+        setEmail('');
+        setSymptoms('');
+
         onRequestClose();
     }
     

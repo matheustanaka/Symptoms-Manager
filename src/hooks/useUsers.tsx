@@ -31,12 +31,12 @@ export function UsersProvider ({ children }: UsersProviderProps) {
             ...userInput,
         })
 
-        const { user } = response.data;
+        // console.log({ response })
 
-        // console.log({ user })
+        
         setUser([
             ...users,
-            user,
+            response.data
         ])
 
     }
