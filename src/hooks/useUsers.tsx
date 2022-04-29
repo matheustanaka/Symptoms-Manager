@@ -33,6 +33,7 @@ export function UsersProvider ({ children }: UsersProviderProps) {
 
         const { user } = response.data;
 
+        // console.log({ user })
         setUser([
             ...users,
             user,

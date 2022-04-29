@@ -23,7 +23,7 @@ export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
         await createUser ({
             name,
             email,
-            symptoms,
+            symptoms
         });
 
         onRequestClose();
@@ -37,7 +37,7 @@ export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
         className="react-modal-content"
         >
            <button type="button" onClick={onRequestClose} className="react-modal-close">
-               Fechar
+               Close
            </button>
 
            <Container>
@@ -45,7 +45,7 @@ export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
                 <input
                 type="text"
                 name="nome" 
-                placeholder="Nome" 
+                placeholder="Name" 
                 value={name} 
                 onChange={event => setName(event.target.value)}
                 />
@@ -58,8 +58,8 @@ export function NewUserModal({ isOpen, onRequestClose }: NewUserModalProps) {
                 />
                 <input
                 type="text"
-                name="sintomas" 
-                placeholder="Sintomas" 
+                name="symptoms" 
+                placeholder="Symptoms" 
                 value={symptoms} 
                 onChange={event => setSymptoms(event.target.value)}
                 />
