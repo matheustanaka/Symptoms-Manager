@@ -1,10 +1,12 @@
 # Symptoms Manager 💉 
 
-An app where you can manage your patients' symptoms.
+An app where you can manage your patients symptoms.
 
 ## About the Challenge
 
-Create an UI that you can create an user and register the symptoms. You should fetch the data from https://github.com/matheustanaka/crud-challenge.git
+Create an UI that you can create an user and register the symptoms. 
+<p>You should fetch the data from https://github.com/matheustanaka/crud-challenge.git</p>
+<p>You can check the app deployed here: https://symptoms-manager.vercel.app/</p>
 
 ## Getting started
 
