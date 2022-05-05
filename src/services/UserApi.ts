@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const UserApi = axios.create({
-    baseURL: "http://localhost:3333",
+    baseURL: "https://crud-challenge-symptoms.herokuapp.com",
     headers: {
         "Content-type": "application/json"
     } 
