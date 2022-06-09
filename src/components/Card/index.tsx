@@ -1,22 +1,22 @@
-import { useUsers } from "../../hooks/useUsers";
+
 import { Container } from "./style";
 
-export function Card() {
+interface UserProps {
+    user: {
+        name: string,
+        email: string,
+        symptoms: string,
+    }
+}
 
-    const { users } = useUsers();
-    // console.log(users);
-
-    return(
+export function Card(props: UserProps) {
+    return (
         <Container>
-            {users.map((user) => {
-                return (
-                    <div className="box-card">
-                    <h2>{user?.name}</h2>
-                    <h3>{user?.email}</h3>
-                    <p>{user?.symptoms}</p>
-                    </div>
-                );
-            })}            
-        </Container> 
+            <div className="card-box">
+                <h2>{props.user.name}</h2>
+                <h3>{props.user.email}</h3>
+                <p>{props.user.symptoms}</p>
+            </div>
+        </Container>
     );
 }
