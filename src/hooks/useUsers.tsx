@@ -15,15 +15,19 @@ interface UsersContextData {
 
 const UsersContext = createContext<UsersContextData>({} as UsersContextData);
 
-export function UsersProvider ({ children }: UsersProviderProps) {
+export function UsersProvider({ children }: UsersProviderProps) {
     const [users, setUser] = useState<UserType[]>([]);
 
+    const fetchUser = async () => {
+        await UserApi.get("/users")
+            .then((response) => setUser(response.data))
+            .catch((err) => {
+                console.log("Evita dog " + err)
+            })
+    }
+
     useEffect(() => {
-        UserApi.get("/users")
-        .then((response) => setUser(response.data))
-        .catch((err) => {
-            console.log("Evita dog " + err)
-        })
+        fetchUser();
     }, []);
 
     async function createUser(userInput: UserInput) {
@@ -33,8 +37,8 @@ export function UsersProvider ({ children }: UsersProviderProps) {
 
         // console.log({ response })
 
-        
-        setUser([
+
+        await setUser([
             ...users,
             response.data
         ])
@@ -42,7 +46,7 @@ export function UsersProvider ({ children }: UsersProviderProps) {
     }
 
     return (
-        <UsersContext.Provider value={{ users, createUser}}>
+        <UsersContext.Provider value={{ users, createUser }}>
             {children}
         </UsersContext.Provider>
     )
