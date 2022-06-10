@@ -8,9 +8,19 @@ interface UsersProviderProps {
     children: ReactNode;
 }
 
+interface UserProps {
+    user: {
+        _id?: string,
+        name: string,
+        email: string,
+        symptoms: string,
+    }
+}
+
 interface UsersContextData {
     users: UserType[];
     createUser: (user: UserInput) => Promise<void>;
+    deleteUser: (props: UserProps) => Promise<void>;
 }
 
 const UsersContext = createContext<UsersContextData>({} as UsersContextData);
@@ -37,7 +47,6 @@ export function UsersProvider({ children }: UsersProviderProps) {
 
         // console.log({ response })
 
-
         await setUser([
             ...users,
             response.data
@@ -45,8 +54,20 @@ export function UsersProvider({ children }: UsersProviderProps) {
 
     }
 
+    async function deleteUser(props: UserProps) {
+        try {
+            await UserApi.delete(`/users/${props.user._id}`);
+
+            await fetchUser();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
+
     return (
-        <UsersContext.Provider value={{ users, createUser }}>
+        <UsersContext.Provider value={{ users, createUser, deleteUser }}>
             {children}
         </UsersContext.Provider>
     )
