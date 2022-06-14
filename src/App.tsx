@@ -21,14 +21,14 @@ function App() {
   }
   return (
     <UsersProvider>
-    <Header />
-    <ButtonCreate onOpenNewUserModal={handleOpenNewUserModal}/> 
-    <Dashboard />
-    <NewUserModal 
-    isOpen={isNewUserModalOpen}
-    onRequestClose={handleCloseNewUserModal}
-    />
-    <GlobalStyle />
+      <Header />
+      <ButtonCreate onOpenNewUserModal={handleOpenNewUserModal}/>
+      <Dashboard />
+      <NewUserModal
+        isOpen={isNewUserModalOpen}
+        onRequestClose={handleCloseNewUserModal}
+      />
+      <GlobalStyle />
     </UsersProvider>
   );
 }
