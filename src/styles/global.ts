@@ -86,4 +86,27 @@ export const GlobalStyle = createGlobalStyle`
            filter: brightness(0.8);
        }
     }
+
+    .react-modal-edit-close {
+       position: absolute;
+       right: 1.5rem;
+       top: 1.5rem;
+       border: 0;
+       
+       background: #2ad59f;
+       color: #FFF;
+       
+       width: 6rem;
+       height: 2rem;
+
+        font-size: 1rem;
+        font-weight: 600;
+
+        border-radius: 0.25rem;
+       transition: filter 0.2s;
+       
+       &:hover {
+           filter: brightness(0.8);
+       }
+    }
 `;
