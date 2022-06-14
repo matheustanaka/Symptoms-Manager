@@ -1,9 +1,8 @@
-import { useUsers } from "../../hooks/useUsers";
-
-import { TiDelete } from "@react-icons/all-files/ti/TiDelete";
-import { FiEdit } from "@react-icons/all-files/fi/FiEdit"
+import { useState } from "react";
+import { DeleteIcon } from "../DeleteIcon";
+import { EditIcon } from "../EditIcon";
+import { EditUserModal } from "../EditUserModal";
 import { Container } from "./style";
-import { FormEvent } from "react";
 
 interface UserProps {
     user: {
@@ -16,24 +15,23 @@ interface UserProps {
 
 export function Card(props: UserProps) {
 
-    const { deleteUser } = useUsers();
+    const [isEditUserModalOpen, setIsEditUserModalOpen] = useState(false);
 
-    const handleDeleteUser = async (event: FormEvent) => {
-        event.preventDefault();
-        await deleteUser(props);
+    function handleOpenEditUserModal() {
+        setIsEditUserModalOpen(true);
+    }
+
+    function handleCloseEditUserModal() {
+        setIsEditUserModalOpen(false)
     }
 
     return (
         <Container>
             <div className="card-box">
                 <div className="icons">
-                    <FiEdit size={23}
-                        color="#00a1ff"
-                    />
-                    <TiDelete size={25}
-                        color="#F97474"
-                        onClick={handleDeleteUser}
-                    />
+                    <EditIcon onOpenEditUserModal={handleOpenEditUserModal} />
+                    <EditUserModal isOpen={isEditUserModalOpen} onRequestClose={handleCloseEditUserModal} />
+                    <DeleteIcon user={props.user} />
                 </div>
                 <div className="user-info">
                     <h2>{props.user.name}</h2>
